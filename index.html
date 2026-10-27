@@ -431,11 +431,11 @@ pre { padding: 14px; overflow-x: auto; font-family: var(--font-mono); font-size:
 
         <div class="auth-group" id="nameGroup" style="display:none;">
             <label>Full Name</label>
-            <input type="text" id="regName" class="auth-input" placeholder="e.g. Dhruv Dubey">
+            <input type="text" id="regName" class="auth-input" placeholder="e.g. name ">
         </div>
         <div class="auth-group">
             <label>Email Address</label>
-            <input type="email" id="authEmail" class="auth-input" placeholder="dhruv@shadow.ai" value="dhruv@shadow.ai">
+            <input type="email" id="authEmail" class="auth-input" placeholder="name@shadow.ai" value="name@shadow.ai">
         </div>
         <div class="auth-group">
             <label>Password</label>
@@ -502,7 +502,7 @@ pre { padding: 14px; overflow-x: auto; font-family: var(--font-mono); font-size:
 
             <div class="user-badge" onclick="openProfileModal()">
                 <div class="avatar-circle" id="userAvatarText">D</div>
-                <span id="userNameBadge">Dhruv Dubey</span>
+                <span id="userNameBadge">name </span>
             </div>
         </div>
 
@@ -516,7 +516,7 @@ pre { padding: 14px; overflow-x: auto; font-family: var(--font-mono); font-size:
                         <div class="orb-ring orb-ring-3"></div>
                         <div class="neural-orb-core"></div>
                     </div>
-                    <div class="gradient-title" id="greetingName">Hello, Dhruv</div>
+                    <div class="gradient-title" id="greetingName">Hello, name</div>
                     <div class="greeting-sub">I am Shadow AI. What shall we explore today?</div>
 
                     <div class="chips-grid">
@@ -563,8 +563,8 @@ pre { padding: 14px; overflow-x: auto; font-family: var(--font-mono); font-size:
         <div style="display:flex; align-items:center; gap:16px; margin-bottom:18px;">
             <div class="avatar-circle" id="profAvatar" style="width:56px; height:56px; font-size:24px;">D</div>
             <div>
-                <div style="font-size:18px; font-weight:700; color:#fff;" id="profName">Dhruv Dubey</div>
-                <div style="font-size:13px; color:var(--text-secondary);" id="profEmail">dhruv@shadow.ai</div>
+                <div style="font-size:18px; font-weight:700; color:#fff;" id="profName">name </div>
+                <div style="font-size:13px; color:var(--text-secondary);" id="profEmail">name@shadow.ai</div>
                 <button style="background:none; border:none; color:#8ab4f8; font-size:12px; cursor:pointer; padding:0; margin-top:3px;" onclick="promptEditName()">✏️ Edit Name</button>
             </div>
         </div>
@@ -705,8 +705,8 @@ function animateCanvas() {
 animateCanvas();
 
 // ==================== 2. APPLICATION STATE ====================
-let currentUser = localStorage.getItem("geminiActiveUser") || "Dhruv Dubey";
-let currentActiveEmail = localStorage.getItem("geminiActiveEmail") || "dhruv@shadow.ai";
+let currentUser = localStorage.getItem("geminiActiveUser") || "name ";
+let currentActiveEmail = localStorage.getItem("geminiActiveEmail") || "name@shadow.ai";
 let currentSessionId = null;
 let scheduledTargets = JSON.parse(localStorage.getItem("geminiFocusTargets")) || [];
 let activeLockTarget = null;
@@ -738,7 +738,7 @@ const APP_DIRECTORY = {
 function getAccountList() {
     let list = JSON.parse(localStorage.getItem("geminiAccountList")) || [];
     if (!list.length) {
-        list = [{ email: "dhruv@shadow.ai", name: "Dhruv Dubey" }];
+        list = [{ email: "name@shadow.ai", name: "name " }];
         localStorage.setItem("geminiAccountList", JSON.stringify(list));
     }
     return list;
@@ -754,7 +754,7 @@ if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = populateVoice
 // INITIALIZE ON LOAD
 window.addEventListener('DOMContentLoaded', () => {
     const active = localStorage.getItem('geminiActiveUser');
-    if (active) authenticateSuccess(active, localStorage.getItem('geminiActiveEmail') || "dhruv@shadow.ai");
+    if (active) authenticateSuccess(active, localStorage.getItem('geminiActiveEmail') || "name@shadow.ai");
     else document.getElementById("loginScreen").style.display = "flex";
     updateHeaderBadges();
     renderSidebarTargets();
@@ -764,7 +764,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // ==================== 3. AUTHENTICATION & MULTI-ACCOUNT ====================
 let authMode = 'login';
 let usersDatabase = JSON.parse(localStorage.getItem('geminiUsers')) || {
-    "dhruv@shadow.ai": { name: "Dhruv Dubey", password: "shadow" }
+    "name@shadow.ai": { name: "name ", password: "shadow" }
 };
 
 function switchAuthMode(m) {
@@ -811,8 +811,8 @@ function showAuthErr(msg) {
 }
 
 function authenticateSuccess(name, email) {
-    currentUser = name || "Dhruv";
-    currentActiveEmail = email || "dhruv@shadow.ai";
+    currentUser = name || "name";
+    currentActiveEmail = email || "name@shadow.ai";
     localStorage.setItem("geminiActiveUser", currentUser);
     localStorage.setItem("geminiActiveEmail", currentActiveEmail);
 
